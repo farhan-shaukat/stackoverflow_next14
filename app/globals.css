@@ -5,7 +5,11 @@
 @import url("../styles/theme.css");
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter);
+}
+
+h1 {
+  font-family: var(--font-spaceGrotesk);
 }
 
 @layer utilities {
