@@ -1,10 +1,36 @@
-import { UserButton } from "@clerk/nextjs";
+"use client";
+import { useState } from "react";
+
+const names: string[] = ["Ahmed", "Ali", "Abdullah", "Moosa", "Umair"];
 
 export default function Home() {
+  const [namePosition, setNamePosition] = useState(0);
+
+  const clickHandleName = (namePosition: number) => {
+    if (!(namePosition < 0) && names.length !== namePosition) {
+      setNamePosition(namePosition);
+    }
+  };
+
   return (
-    <div className="h-screen">
-      <h1 className="h1-bold">This is my heading</h1>
-      <UserButton afterSignOutUrl="/" />
+    <div className="flex h-screen w-full items-center justify-center">
+      <div className="w-auto text-center">
+        <h1 className="h1-bold mb-4">{names[namePosition]}</h1>
+        <div className="flex w-auto">
+          <button
+            onClick={() => clickHandleName(namePosition - 1)}
+            className="mr-2 rounded-md bg-black px-5 py-2 text-white"
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => clickHandleName(namePosition + 1)}
+            className="rounded-md bg-black px-5 py-2 text-white"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
