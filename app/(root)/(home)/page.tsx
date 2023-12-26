@@ -1,38 +1,34 @@
-"use client";
-import { useState } from "react";
+import Filter from "@/components/shared/Filter";
+import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
 
-const names: string[] = ["Ahmed", "Ali", "Abdullah", "Moosa", "Umair"];
-
-export default function Home() {
-  const [namePosition, setNamePosition] = useState(0);
-
-  const clickHandleName = (namePosition: number) => {
-    if (!(namePosition < 0) && names.length !== namePosition) {
-      setNamePosition(namePosition);
-    }
-  };
-
+const Home = () => {
   return (
-    <div className="flex h-screen w-full items-center justify-center">
-      <div className="w-auto text-center">
-        <h1 className="h1-bold mb-4 text-black dark:text-white">
-          {names[namePosition]}
-        </h1>
-        <div className="flex w-auto">
-          <button
-            onClick={() => clickHandleName(namePosition - 1)}
-            className="mr-2 rounded-md bg-black px-5 py-2 text-white dark:bg-white dark:text-black"
-          >
-            Prev
-          </button>
-          <button
-            onClick={() => clickHandleName(namePosition + 1)}
-            className="rounded-md bg-black px-5 py-2 text-white dark:bg-white dark:text-black"
-          >
-            Next
-          </button>
-        </div>
+    <>
+      <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
+        <h1 className="h1-bold text-dark100_light900">All Questions</h1>
+
+        <Link href="/ask-question" className="flex justify-end max-sm:w-full">
+          <Button className="primary-gradient !text-light-900 min-h-[46px] px-4 py-3">
+            Ask a Question
+          </Button>
+        </Link>
       </div>
-    </div>
+      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
+        <LocalSearchBar
+          route="/"
+          iconPosition="left"
+          imgSrc="/assets/icons/search.svg"
+          placeholder="Search for questions"
+          otherClasses="flex-1"
+        />
+
+        <Filter />
+      </div>
+    </>
   );
-}
+};
+
+export default Home;
