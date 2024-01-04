@@ -6,11 +6,13 @@ import {
   CreateUserParams,
   DeleteUserParams,
   UpdateUserParams,
+  GetUserByIdParams,
+  GetAllUsersParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
-export async function getUserById(params: any) {
+export async function getUserById(params: GetUserByIdParams) {
   try {
     connectToDatabase();
 
@@ -81,6 +83,19 @@ export async function deleteUser(params: DeleteUserParams) {
     const deletedUser = await User.findByIdAndDelete(user._id);
 
     return deletedUser;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export async function getUsers(params: GetAllUsersParams) {
+  try {
+    connectToDatabase();
+
+    const users = await User.find({});
+
+    return { users };
   } catch (error) {
     console.log(error);
     throw error;
