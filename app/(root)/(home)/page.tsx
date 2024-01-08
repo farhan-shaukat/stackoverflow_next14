@@ -50,22 +50,6 @@ const Home = async () => {
   const result = await getQuestions({});
   return (
     <>
-      {/* <div className="container mx-auto rounded-lg bg-gray-100 p-4 shadow-md">
-        <div className="grid grid-cols-3 grid-rows-3 gap-4">
-          <div className="col-span-2 row-span-1 min-h-[200px] bg-blue-500">
-            Box 1
-          </div>
-
-          <div className="col-span-1 row-span-2 bg-green-500">Box 2</div>
-
-          <div className="col-span-1 row-span-2 bg-yellow-500">Box 3</div>
-
-          <div className="col-span-1 row-span-1 bg-red-500">Box 4</div>
-
-          <div className="col-span-2 row-span-1 bg-purple-500">Box 5</div>
-        </div>
-      </div> */}
-
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
 
