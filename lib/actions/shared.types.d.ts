@@ -24,6 +24,25 @@ export interface AnswerVoteParams {
   path: string;
 }
 
+export interface QuestionReturnProps {
+  questions: {
+    _id: string;
+    title: string;
+    tags: {
+      _id: string;
+      name: string;
+    }[];
+    author: {
+      _id: string;
+      name: string;
+      picture: string;
+    };
+    upvotes: string[];
+    views: number;
+    answers: Array<object>;
+    createdAt: Date;
+  }[];
+}
 export interface DeleteAnswerParams {
   answerId: string;
   path: string;
