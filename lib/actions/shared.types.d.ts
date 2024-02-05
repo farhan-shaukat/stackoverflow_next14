@@ -43,6 +43,11 @@ export interface QuestionReturnProps {
     createdAt: Date;
   }[];
 }
+
+export interface TagsQuestionsReturnProps extends QuestionReturnProps {
+  tagTitle: string;
+}
+
 export interface DeleteAnswerParams {
   answerId: string;
   path: string;
