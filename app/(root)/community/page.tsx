@@ -3,11 +3,14 @@ import Filter from "@/components/shared/Filter";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { UserFilters } from "@/constants/filters";
 import { getUsers } from "@/lib/actions/user.action";
+import { SearchParamsProps } from "@/types";
 import { Link } from "lucide-react";
 import React from "react";
 
-const Page = async () => {
-  const result = await getUsers({});
+const Page = async ({ searchParams }: SearchParamsProps) => {
+  const result = await getUsers({
+    searchQuery: searchParams.q,
+  });
   return (
     <>
       <h1 className="h1-bold text-dark100_light900">All Users</h1>
