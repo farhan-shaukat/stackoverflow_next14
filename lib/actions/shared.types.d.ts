@@ -42,6 +42,7 @@ export interface QuestionReturnProps {
     answers: Array<object>;
     createdAt: Date;
   }[];
+  isNext: boolean;
 }
 
 export interface TagsQuestionsReturnProps extends QuestionReturnProps {
